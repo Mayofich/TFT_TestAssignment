@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TFT_Test",
+    "\\TFT_Test\\TFT_Test"
   ],
-  "SelectedNode": "\\C:\\Users\\majas\\Source\\Repos\\TFT_TestAssignment",
+  "SelectedNode": "\\TFT_Test\\TFT_Test.sln",
   "PreviewInSolutionExplorer": false
 }
