@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//builder.Services.AddControllers();
 builder.Services.AddDbContext<DirectorListContext>(opt =>
 {
 	opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
