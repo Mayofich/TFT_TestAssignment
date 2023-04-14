@@ -26,6 +26,24 @@ if (!app.Environment.IsDevelopment())
             opts.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
                 User ID=postgres;Password=pMajaolinkas88");
         });
+	services.AddDbContext<DirectorListContext>(
+		opts =>
+		{
+			opts.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+		});
+	services.AddDbContext<FilmListContext>(
+		opts =>
+		{
+			opts.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+		});
+	services.AddDbContext<GenreListContext>(
+		opts =>
+		{
+			opts.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+		});
 }
 
 app.UseHttpsRedirection();
