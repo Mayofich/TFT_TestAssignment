@@ -10,6 +10,11 @@ builder.Services.AddDbContext<DirectorListContext>(opt =>
 	opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
                 User ID=postgres;Password=pMajaolinkas88");
 });
+builder.Services.AddDbContext<ActorListContext>(opt =>
+{
+    opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+});
 
 var app = builder.Build();
 

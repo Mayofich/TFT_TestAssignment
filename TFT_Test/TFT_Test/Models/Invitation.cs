@@ -5,5 +5,7 @@
 		public int InvitationId { get; set; }
 		public Actor InvitedActor { get; set; }
 		public Film FilmInvitedTo { get; set; }
+
+		public bool Accepted { get; set; }
 	}
 }

@@ -7,10 +7,10 @@ using TFT_Test.Data;
 
 #nullable disable
 
-namespace TFT_Test.Migrations
+namespace TFT_Test.Migrations.ActorList
 {
-    [DbContext(typeof(DirectorListContext))]
-    partial class DirectorListContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ActorListContext))]
+    partial class ActorListContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -21,33 +21,40 @@ namespace TFT_Test.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TFT_Test.Models.Director", b =>
+            modelBuilder.Entity("TFT_Test.Models.Actor", b =>
                 {
-                    b.Property<int>("DirectorId")
+                    b.Property<int>("ActorId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("DirectorId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ActorId"));
 
-                    b.Property<string>("DirectorEmail")
+                    b.Property<string>("ActorAdress")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("DirectorName")
+                    b.Property<string>("ActorEmail")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("DirectorPassword")
+                    b.Property<string>("ActorName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("DirectorSurname")
+                    b.Property<string>("ActorPassword")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("DirectorId");
+                    b.Property<string>("ActorSurname")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.ToTable("Directors");
+                    b.Property<int>("ExpectedFee")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ActorId");
+
+                    b.ToTable("Actors");
                 });
 #pragma warning restore 612, 618
         }
