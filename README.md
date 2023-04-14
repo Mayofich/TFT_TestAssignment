@@ -15,3 +15,11 @@ After reading this link Entity Framework Core Code First - Basic and Custom Migr
 So technically by using ICollection I’ll be sparing myself the trouble of the actual thinking of the exact database structure (which is what I was trying to get here)
 
 NOTE 1 END
+
+NOTE 2 START
+
+Created tables in database through dependency injection, now need to create CRUD through it, had some issues with code changes from older examples I followed to the version of .net and EF I am using for the project.
+Currently unsure if the relations between table parts are working as expected which will be checked at some point.
+I will first start with managing CRUD operations as if the user of the database is admin, then I will try to add user control if able
+
+NOTE 2 END
