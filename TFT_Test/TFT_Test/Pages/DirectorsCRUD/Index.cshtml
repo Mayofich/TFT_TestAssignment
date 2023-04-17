@@ -1,0 +1,54 @@
+﻿@page
+@model TFT_Test.Pages.DirectorsCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Director[0].DirectorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director[0].DirectorSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director[0].DirectorEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director[0].DirectorPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Director) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorPassword)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DirectorId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DirectorId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DirectorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
