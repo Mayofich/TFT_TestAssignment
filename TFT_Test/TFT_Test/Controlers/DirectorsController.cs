@@ -6,37 +6,37 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TFT_Test.Data;
+using TFT_Test.DataAccess;
 using TFT_Test.Models;
 
 namespace TFT_Test.Controlers
 {
     public class DirectorsController : Controller
     {
-        private readonly DirectorListContext _context;
+        private readonly IDataAccessProvider _dataAccessProvider;
 
-        public DirectorsController(DirectorListContext context)
+        public DirectorsController(IDataAccessProvider dataAccessProvider)
         {
-            _context = context;
+            _dataAccessProvider = dataAccessProvider;
         }
 
         // GET: Directors
         public async Task<IActionResult> Index()
         {
-              return _context.Directors != null ? 
-                          View(await _context.Directors.ToListAsync()) :
-                          Problem("Entity set 'DirectorListContext.Directors'  is null.");
+              return _dataAccessProvider.GetAllDirectors != null ? 
+                          View( _dataAccessProvider.GetAllDirectors()) :
+                          Problem("There are no recorded Directors in the database");
         }
 
         // GET: Directors/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null || _context.Directors == null)
+            if ( _dataAccessProvider.GetAllDirectors == null)
             {
                 return NotFound();
             }
 
-            var director = await _context.Directors
-                .FirstOrDefaultAsync(m => m.DirectorId == id);
+            var director = _dataAccessProvider.GetDirectorRecord(id);
             if (director == null)
             {
                 return NotFound();
@@ -60,22 +60,21 @@ namespace TFT_Test.Controlers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(director);
-                await _context.SaveChangesAsync();
+                _dataAccessProvider.AddDirectorRecord(director);
                 return RedirectToAction(nameof(Index));
             }
             return View(director);
         }
 
         // GET: Directors/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null || _context.Directors == null)
+            if ( _dataAccessProvider.GetAllDirectors == null)
             {
                 return NotFound();
             }
 
-            var director = await _context.Directors.FindAsync(id);
+            var director = _dataAccessProvider.GetDirectorRecord(id);
             if (director == null)
             {
                 return NotFound();
@@ -99,12 +98,11 @@ namespace TFT_Test.Controlers
             {
                 try
                 {
-                    _context.Update(director);
-                    await _context.SaveChangesAsync();
+                    _dataAccessProvider.UpdateDirectorRecord(director);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DirectorExists(director.DirectorId))
+                    if (_dataAccessProvider.GetDirectorRecord(id) == null)
                     {
                         return NotFound();
                     }
@@ -119,15 +117,14 @@ namespace TFT_Test.Controlers
         }
 
         // GET: Directors/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null || _context.Directors == null)
+            if ( _dataAccessProvider.GetAllDirectors == null)
             {
                 return NotFound();
             }
 
-            var director = await _context.Directors
-                .FirstOrDefaultAsync(m => m.DirectorId == id);
+            var director = _dataAccessProvider.GetDirectorRecord(id);
             if (director == null)
             {
                 return NotFound();
@@ -141,23 +138,19 @@ namespace TFT_Test.Controlers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Directors == null)
+            if (_dataAccessProvider.GetAllDirectors == null)
             {
-                return Problem("Entity set 'DirectorListContext.Directors'  is null.");
+                return Problem("There are no recorded Directors in the database");
             }
-            var director = await _context.Directors.FindAsync(id);
+            var director = _dataAccessProvider.GetDirectorRecord(id);
             if (director != null)
             {
-                _context.Directors.Remove(director);
+                _dataAccessProvider.DeleteDirectorRecord(id);
             }
             
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DirectorExists(int id)
-        {
-          return (_context.Directors?.Any(e => e.DirectorId == id)).GetValueOrDefault();
-        }
+
     }
 }
