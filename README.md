@@ -23,3 +23,11 @@ Currently unsure if the relations between table parts are working as expected wh
 I will first start with managing CRUD operations as if the user of the database is admin, then I will try to add user control if able
 
 NOTE 2 END
+
+
+NOTE 3 START
+
+Stopped writing notes... UPS... Couldn't work on the project during the weekend, did my best to get as far as I can on Monday before the deadline.
+I am not satisfied with the progress I made I think I lost a lot of time trying stuff out and didn't write code that is functional enough.
+
+NOTE 3 END
