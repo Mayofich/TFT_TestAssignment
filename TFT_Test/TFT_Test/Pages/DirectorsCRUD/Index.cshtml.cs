@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TFT_Test.Data;
 using TFT_Test.Models;
 
-namespace TFT_Test.Pages
+namespace TFT_Test.Pages.DirectorsCRUD
 {
     public class IndexModel : PageModel
     {
@@ -27,9 +27,6 @@ namespace TFT_Test.Pages
             {
                 Director = await _context.Directors.ToListAsync();
             }
-
         }
-
-
     }
 }

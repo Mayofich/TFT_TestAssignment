@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using TFT_Test.Data;
 using TFT_Test.Models;
 
-namespace TFT_Test.Pages
+namespace TFT_Test.Pages.DirectorsCRUD
 {
     public class CreateModel : PageModel
     {
