@@ -1,0 +1,61 @@
+﻿@page
+@model TFT_Test.Pages.FilmCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].FilmName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].FilmDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].FilmLengt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].StartedFilming)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film[0].EndedFilming)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Film) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FilmLengt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartedFilming)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndedFilming)
+            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FilmId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FilmId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FilmId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

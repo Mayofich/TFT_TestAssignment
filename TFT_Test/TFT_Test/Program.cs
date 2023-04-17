@@ -31,6 +31,11 @@ builder.Services.AddDbContext<GenreCRUDContext>(opt =>
     opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
                 User ID=postgres;Password=pMajaolinkas88");
 });
+builder.Services.AddDbContext<FilmCRUDContext>(opt =>
+{
+    opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
