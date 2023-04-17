@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using TFT_Test.Controlers;
+using TFT_Test.Models;
 
 namespace TFT_Test.Pages
 {
@@ -11,10 +13,6 @@ namespace TFT_Test.Pages
 		{
 			_logger = logger;
 		}
-
-		public void OnGet()
-		{
-
-		}
 	}
+
 }

@@ -1,20 +1,26 @@
 using Microsoft.EntityFrameworkCore;
 using TFT_Test.Data;
 using TFT_Test.DataAccess;
+using TFT_Test.Controlers;
+using TFT_Test.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-//builder.Services.AddControllers();
-
+builder.Services.AddMvc();
+builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDataAccessProvider, DataAccessProvider>();
 builder.Services.AddDbContext<DirectorListContext>(opt =>
 {
 	opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
                 User ID=postgres;Password=pMajaolinkas88");
 });
-
+builder.Services.AddDbContext<DirectorCRUDContext>(opt =>
+{
+    opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,13 +32,18 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.MapRazorPages();
 
 app.Run();
 /*

@@ -19,7 +19,7 @@ namespace TFT_Test.DataAccess
             _context.Directors.Add(director);
             _context.SaveChanges();
         }
-        public void UpdateDirectorRecord(Director director)
+        public async void UpdateDirectorRecord(Director director)
         {
             _context.Directors.Update(director);
             _context.SaveChanges();
