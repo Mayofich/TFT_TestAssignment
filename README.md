@@ -29,5 +29,6 @@ NOTE 3 START
 
 Stopped writing notes... UPS... Couldn't work on the project during the weekend, did my best to get as far as I can on Monday before the deadline.
 I am not satisfied with the progress I made I think I lost a lot of time trying stuff out and didn't write code that is functional enough.
+My main issue is not being sure how to connect database pieces through code-first approach.
 
 NOTE 3 END
