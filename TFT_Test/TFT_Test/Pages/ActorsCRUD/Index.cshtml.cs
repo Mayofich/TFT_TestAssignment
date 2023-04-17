@@ -8,28 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using TFT_Test.Data;
 using TFT_Test.Models;
 
-namespace TFT_Test.Pages
+namespace TFT_Test.Pages.ActorsCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly TFT_Test.Data.DirectorCRUDContext _context;
+        private readonly TFT_Test.Data.ActorCRUDContext _context;
 
-        public IndexModel(TFT_Test.Data.DirectorCRUDContext context)
+        public IndexModel(TFT_Test.Data.ActorCRUDContext context)
         {
             _context = context;
         }
 
-        public IList<Director> Director { get;set; } = default!;
+        public IList<Actor> Actor { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Directors != null)
+            if (_context.Actor != null)
             {
-                Director = await _context.Directors.ToListAsync();
+                Actor = await _context.Actor.ToListAsync();
             }
-
         }
-
-
     }
 }

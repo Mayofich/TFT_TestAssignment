@@ -3,10 +3,10 @@ using TFT_Test.Models;
 
 namespace TFT_Test.Data
 {
-	public class DirectorCRUDContext : DbContext
+	public class ActorCRUDContext : DbContext
 	{
-		public DirectorCRUDContext(DbContextOptions<DirectorCRUDContext> options) : base(options) { }
-		public DbSet<Director> Directors { get; set; }
+		public ActorCRUDContext(DbContextOptions<ActorCRUDContext> options) : base(options) { }
+		public DbSet<Actor> Actor { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

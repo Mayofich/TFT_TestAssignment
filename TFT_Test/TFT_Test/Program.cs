@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TFT_Test.Data;
 using TFT_Test.DataAccess;
-using TFT_Test.Controlers;
 using TFT_Test.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,12 +10,18 @@ builder.Services.AddRazorPages();
 builder.Services.AddMvc();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDataAccessProvider, DataAccessProvider>();
+builder.Services.AddScoped<IDataAccessProviderActor, DataAccessProviderActor>();
 builder.Services.AddDbContext<DirectorListContext>(opt =>
 {
 	opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
                 User ID=postgres;Password=pMajaolinkas88");
 });
 builder.Services.AddDbContext<DirectorCRUDContext>(opt =>
+{
+    opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
+                User ID=postgres;Password=pMajaolinkas88");
+});
+builder.Services.AddDbContext<ActorCRUDContext>(opt =>
 {
     opt.UseNpgsql(@"Server=localhost;Port=5432;Database=TFT_TestBase;
                 User ID=postgres;Password=pMajaolinkas88");

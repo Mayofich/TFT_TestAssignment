@@ -16,6 +16,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\majas\source\repos\TFT_TestAssignment\TFT_Test\TFT_Test
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/majas/source/repos/TFT_TestAssignment/TFT_Test/TFT_Test/Pages/ActorsCRUD/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0b3JzQ1JVRFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/majas/source/repos/TFT_TestAssignment/TFT_Test/TFT_Test/Pages/ActorsCRUD/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0b3JzQ1JVRFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/majas/source/repos/TFT_TestAssignment/TFT_Test/TFT_Test/Pages/ActorsCRUD/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0b3JzQ1JVRFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/majas/source/repos/TFT_TestAssignment/TFT_Test/TFT_Test/Pages/ActorsCRUD/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0b3JzQ1JVRFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/majas/source/repos/TFT_TestAssignment/TFT_Test/TFT_Test/Pages/ActorsCRUD/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWN0b3JzQ1JVRFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/majas/source/repos/TFT_TestAssignment/TFT_Test/TFT_Test/Pages/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

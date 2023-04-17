@@ -27,13 +27,16 @@ namespace TFT_Test.DataAccess
         public void DeleteDirectorRecord(int id)
         {
             var entity = _context.Directors.FirstOrDefault(t => t.DirectorId == id);
-            _context.Directors.Remove(entity);
+            if (entity != null) 
+                _context.Directors.Remove(entity);
             _context.SaveChanges();
         }
 
         public Director GetDirectorRecord(int id) 
         {
+
             return _context.Directors.FirstOrDefault(t => t.DirectorId == id);
+            
         }
 
         public List<Director> GetAllDirectors() 
